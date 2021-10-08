@@ -33,12 +33,24 @@ const createPostElement = (thumbnail, post) => {
   elCol.appendChild(elCard);
 
   // EDIT HERE
-
+  elCardTitle.innerHTML = post.title 
+  elCardImg.setAttribute('src', thumbnail)
+  elCardBtn.addEventListener('click', function(){
+    elCardBtn.setAttribute('href', 'post.html?post_id=' + post.id)
+    getPosts(post.id)
+  })
   return elCol;
 };
 
 const renderPosts = async () => {
   // EDIT HERE
+  let news = document.getElementById('daftar-berita')
+  let post = await getPosts()
+  
+  for(let i=0; i<post.length; i++){
+    let img = await getRandomPic()
+    news.appendChild(createPostElement(img, post[i]))
+  }
 };
 
 renderPosts();
