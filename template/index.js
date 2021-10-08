@@ -33,23 +33,38 @@ const createPostElement = (thumbnail, post) => {
   elCol.appendChild(elCard);
 
   // EDIT HERE
+<<<<<<< HEAD
   elCardTitle.innerHTML = post.title 
   elCardImg.setAttribute('src', thumbnail)
   elCardBtn.addEventListener('click', function(){
     elCardBtn.setAttribute('href', 'post.html?post_id=' + post.id)
     getPosts(post.id)
   })
+=======
+  elCardTitle.innerHTML = post.title;
+  elCardImg.setAttribute('src', thumbnail);
+  elCardBtn.setAttribute('href', 'post.html?post_id=' + post.id);
+
+>>>>>>> 67405d131196d2a5d097510c39234ee6baeb0827
   return elCol;
 };
 
 const renderPosts = async () => {
   // EDIT HERE
+<<<<<<< HEAD
   let news = document.getElementById('daftar-berita')
   let post = await getPosts()
   
   for(let i=0; i<post.length; i++){
     let img = await getRandomPic()
     news.appendChild(createPostElement(img, post[i]))
+=======
+  let posts = await getPosts();
+  let daftarBerita = document.getElementById('daftar-berita');
+  for(let i = 0; i < 16; i++){
+    let thumbnail = await getRandomPic();
+    daftarBerita.appendChild(createPostElement(thumbnail, posts[i]));
+>>>>>>> 67405d131196d2a5d097510c39234ee6baeb0827
   }
 };
 
