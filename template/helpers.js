@@ -1,13 +1,31 @@
 export const getPosts = async () => {
-  // EDIT HERE
+ // EDIT HERE
+ try {
+  const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  return posts;
+} catch (error) {
+  console.log('Error', error);
+  throw error;
+}
 };
 
 export const getPost = async (post_id) => {
   // EDIT HERE
+  // try{
+  //   const response = await fetch{
+  //     `https://jsonplaceholder.typicode.com/posts${post_id}`,
+  //     {
+
+  //     }
+  //   }
+
+  // }
 };
 
 export const getPostComments = async (post_id) => {
   // EDIT HERE
+
 };
 
 export const getAuthor = async (user_id) => {
